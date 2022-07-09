@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="Routes">
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 102px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button6 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.button6:hover {
+  background-color: #4CAF50;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+
+</style>
+	<center>
+	<body>
+   Type BC
+  <br><div>
+  <div style = "display: flex; justify-content: space-around">
+    <div style = "position:fixed; left:25%; ">F1</div>
+    <div style = "position:fixed; left:35%; ">F2</div>
+    <div style = "position:fixed; left:45%; ">F3</div>
+    <div style = "position:fixed; left:55%; ">F4</div>
+    <div style = "position:fixed; left:65%; ">F5</div>
+    <div style = "position:fixed; left:75%; ">F6</div>
+  </div>
+  <br>
+  <div style = "display: flex; justify-content: space-around">
+    <div style = "position:fixed; left:30%; ">L2</div>
+    <div style = "position:fixed; left:40%; ">L3</div>
+    <div style = "position:fixed; left:50%; ">L4</div>
+    <div style = "position:fixed; left:60%; ">L5</div>
+    <div style = "position:fixed; left:70%; ">L6</div>
+  </div>
+  <br>
+  <div style = "display: flex; justify-content: space-around">
+    <div style = "position:fixed; left:15%; ">A</div>
+    <div style = "position:fixed; left:50%; ">S</div>
+    <div style = "position:fixed; left:85%; ">B</div>
+  </div>
+</div></br>
+<br>
+<div style = "display: flex; justify-content: space-around">
+  <br><element dir="rtl">طول من (A) الى (B) = <input type="text" id="X1">
+  <element dir="rtl">طول من (A) الى (S) = <input type="text" id="X2"></br>
+  <br><element dir="rtl">طول من (A) الى (F1) = <input type="text" id="X3">
+</div></br>
+<br>
+<div style = "display: flex; justify-content: space-around">
+  F1 = <input type="text" id="F1">
+  F2 = <input type="text" id="F2">
+  F3 = <input type="text" id="F3">
+</div>
+<br>
+<div style = "display: flex; justify-content: space-around">
+  F4 = <input type="text" id="F4">
+  F5 = <input type="text" id="F5">
+  F6 = <input type="text" id="F6">
+</div></br>
+<div style = "display: flex; justify-content: space-around">
+  L2 = <input type="text" id="X4">
+  L3 = <input type="text" id="X5">
+  L4 = <input type="text" id="X6">
+</div>
+<br>
+<div style = "display: flex; justify-content: space-around">
+  L5 = <input type="text" id="X7">
+  L6 = <input type="text" id="X8">
+</div></br>
+  <br><button id="myBtn" class="button button6" onclick="aa('=')">النتيجة</button></br>
+  <br>Mmax(Kn*m) = <input type="text" id="geS">
+  <script>
+function aa(bb){
+  var L=Number(document.getElementById('X1').value);
+  var A=Number(document.getElementById('X2').value);
+  var L1=Number(document.getElementById('X3').value);
+  var L2=Number(document.getElementById('X4').value);
+  var L3=Number(document.getElementById('X5').value);
+  var L4=Number(document.getElementById('X6').value);
+  var L5=Number(document.getElementById('X7').value);
+  var L6=Number(document.getElementById('X8').value);
+  var F1=Number(document.getElementById('F1').value);
+  var F2=Number(document.getElementById('F2').value);
+  var F3=Number(document.getElementById('F3').value);
+  var F4=Number(document.getElementById('F4').value);
+  var F5=Number(document.getElementById('F5').value);
+  var F6=Number(document.getElementById('F6').value);
+  var N;
+  var M;
+  var MY;
+  var R;
+  var MX=0;
+  switch (bb) {
+    case '=':{
+      B=(L-A);
+      S=((A*B)/L);
+      SA=(A/S);
+      SB=(B/S);
+      L2=(L1+L2);
+      L3=(L2+L3);
+      L4=(L3+L4);
+      L5=(L4+L5);
+      L6=(L5+L6);
+      if (L1<=A){
+        Y1=((L1)/SA);
+      }if (L1>A){
+        Y1=((L-L1)/SB);
+      }if (L2<=A){
+        Y2=((L2)/SA);
+      }if (L2>A){
+        Y2=((L-L2)/SB);
+      }if (L3<=A){
+        Y3=((L3)/SA);
+      }if (L3>A){
+        Y3=((L-L3)/SB);
+      }if (L4<=A){
+        Y4=((L4)/SA);
+      }if (L1>A){
+        Y4=((L-L4)/SB);
+      }if (L5<=A){
+        Y5=((L5)/SA);
+      }if (L5>A){
+        Y5=((L-L5)/SB);
+      }if (L6<=A){
+        Y6=((L6)/SA);
+      }if (L6>A){
+        Y6=((L-L6)/SB);
+      }
+      MX=((F1*Y1)+(F2*Y2)+(F3*Y3)+(F4*Y4)+(F5*Y5)+(F6*Y6));
+      MY=(Math.round(MX));
+					   if (MY > MX){
+    					    M=(MY-1);
+					        N=((MX-M)*1000);
+    					    R=((Math.round(N))/1000);
+ 					        MX=(M+R);
+							 } else {
+  					      M=(MY);
+					        N=((MX-M)*1000);
+ 					        R=((Math.round(N))/1000);
+					        MX=(M+R);
+    					  }
+
+    }
+    default:
+
+  }
+  document.getElementById('geS').value=MX;
+}
+document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+  </script>
+	</body>
+</center>
+</html>

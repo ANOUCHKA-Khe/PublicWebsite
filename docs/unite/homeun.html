@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="con">
+</head>
+	<style>
+	input[type=text], input[type=password] {
+	  width: 47.4%;
+	  padding: 12px 20px;
+	  margin: 8px 2px;
+	  display: inline-block;
+	  border: 1px solid #ccc;
+	  box-sizing: border-box;
+	}
+	input[type=button]{
+		width: 100%;
+		padding: 8px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+	.modal {
+	  position: fixed; /* Stay in place */
+	  z-index: 1; /* Sit on top */
+	  left: 0;
+	  top: 0;
+	  width: 100%; /* Full width */
+	  height: 100%; /* Full height */
+	  padding-top: 100px;
+	}
+	.modal-content {
+	  background-color: transparent;
+		backdrop-filter: blur(15px);
+	  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+	  border: 0.001px solid #888;
+	  width: 80%; /* Could be more or less, depending on screen size */
+		height: 40%;
+	}
+	.container {
+	  padding: 16px;
+	}
+	.dropbtn {
+	  background-color: #04AA6D;
+	  color: white;
+	  padding: 10px 68px;
+		width: 100%;
+	  font-size: 16px;
+	  border: none;
+	}
+	.dropdown {
+		width: 100%;
+	  position: relative;
+	  display: inline-block;
+	}
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #f1f1f1;
+	  min-width: 60px;
+		width: 100%;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+	.dropdown-content a {
+	  color: black;
+	  padding: 5px 5px;
+	  text-decoration: none;
+	  display: block;
+	}
+	.dropdown-content a:hover {background-color: #ddd;}
+	.dropdown:hover .dropdown-content {display: none;}
+	.dropdown:hover .dropbtn {background-color: #3e8e41;}
+	.button7 {
+	  border: none;
+	  color: white;
+	  padding: 8px 52px;
+		width: 98%;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 4px 2px;
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	}
+	.button7 {
+	  background-color: white;
+	  color: black;
+	  border: 2px solid #008CBA;
+	}
+	.button7:hover {
+	  background-color: #008CBA;/*green = 4CAF50 ; blue = 008CBA*/
+	  color: white;
+	}
+	.doa {
+		background-color: transparent;
+		margin: 0% auto 0% auto; /* 5% from the top, 15% from the bottom and centered */
+		border: none;
+		width: 48%; /* Could be more or less, depending on screen size */
+		height: 10%;
+	}
+
+	.dropbetn1 {
+	  background-color: #04AA6D;
+	  color: white;
+	  padding: 10px 68px;
+		width: 100%;
+	  font-size: 16px;
+	  border: none;
+	}
+	.modalcontent1 {
+		background-color: transparent;
+		margin: 0% auto 0% auto; /* 5% from the top, 15% from the bottom and centered */
+		border: none;
+		width: 100%; /* Could be more or less, depending on screen size */
+		height: 100%;
+	}
+	.dropdown-content1 {
+	  display: none;
+	  position: absolute;
+	  background-color: #f1f1f1;
+	  min-width: 60px;
+		width: 100%;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+	.dropdown-content1 a {
+	  color: black;
+	  padding: 5px 5px;
+	  text-decoration: none;
+	  display: block;
+	}
+	.dropdown-content1 a:hover {background-color: #ddd;}
+	.dropdown:hover .dropdown-content1 {display: block;}
+
+	.outx {
+		backdrop-filter: blur(15px);
+		background-color: rgba(255,255,255,0.3);
+		margin: 0% auto 30% auto; /* 5% from the top, 15% from the bottom and centered */
+		border: none;
+		width: 100%; /* Could be more or less, depending on screen size */
+		height: 60%;
+	}
+
+	body {
+	  margin: 0;
+	  font-family: Arial;
+	  font-size: 17px;
+	}
+	body {
+	  background-image: url('../img/unite.gif');
+	  background-repeat: no-repeat;
+	  background-attachment: fixed;
+	  background-size: cover;
+	  position: fixed;
+	  right: 0;
+	  bottom: 0;
+	  min-width: 100%;
+	  min-height: 100%;
+	}
+
+	p {
+	   padding:5px;
+	   margin:4px;
+	}
+	::-webkit-scrollbar {
+	  width: 10px;
+	}
+	::-webkit-scrollbar-track {
+	  background: transparent;
+	}
+	::-webkit-scrollbar-thumb {
+	  background: #888;
+	}
+	::-webkit-scrollbar-thumb:hover {
+	  background: #555;
+	}
+	::-webkit-scrollbar-thumb {
+	  border-radius: 3px;;
+	}
+	</style>
+	<center>
+	<h2>تحويل الوحدات</h2>
+	<body>
+		<div id="id01" class="modal">
+			<div class="modal-content">
+				<div class="container">
+					<p id="OPI1">  اضغظ على الزر للبدا  </p>
+					<div class="dropdown">
+				  <input type="button" id="M001" value="Unit Converter" onclick="M1()" class="dropbtn">
+					<input type="button" id="M002" value="Unit Converter" onclick="M2()" class="dropbtn" style="display:none;">
+				  <div id="M003" class="dropdown-content">
+				    <div><button id="MA01" class="button button7" onclick="aa()" value="المسافات"> المسافات </button></div>
+				    <div><button id="MA02" class="button button7" onclick="ab()" value="المساحات"> المساحات </button></div>
+				    <div><button id="MA03" class="button button7" onclick="ac()" value="الاوزان"> الاوزان </button></div>
+				    <div><button id="MA04" class="button button7" onclick="ad()" value="السرعة"> السرعة </button></div>
+				  </div>
+				</div>
+
+				<div style="display: flex; justify-content: space-around;">
+
+					<div id="dist" class="doa" style="display:none;">
+						<div class="modalcontent1">
+							<div class="container">
+								<div class="dropdown">
+								<input type="button" id="D01" value="unite" class="dropbetn1">
+								<div id="M003" onclick="foff" class="dropdown-content1">
+									<div><button id="DA01" class="button button7" onclick="da()" value="كيلومتر"> كيلومتر </button></div>
+									<div><button id="DA02" class="button button7" onclick="db()" value="المتر"> المتر </button></div>
+									<div><button id="DA03" class="button button7" onclick="dc()" value="سنتيمتر"> سنتيمتر </button></div>
+									<div><button id="DA04" class="button button7" onclick="dd()" value="مليمتر"> مليمتر </button></div>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+
+					<div id="dist1" class="doa" style="display:none;">
+						<div class="modalcontent1">
+							<div class="container">
+								<div class="dropdown">
+								<input type="button" id="D02" value="unite" class="dropbetn1">
+								<div id="M003" onclick="foff" class="dropdown-content1">
+									<div><button id="D101" class="button button7" onclick="d1()" value="كيلومتر"> كيلومتر </button></div>
+									<div><button id="D102" class="button button7" onclick="d2()" value="المتر"> المتر </button></div>
+									<div><button id="D103" class="button button7" onclick="d3()" value="سنتيمتر"> سنتيمتر </button></div>
+									<div><button id="D104" class="button button7" onclick="d4()" value="مليمتر"> مليمتر </button></div>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+				<div style="display: flex; justify-content: space-around;">
+
+					<div id="ecps" class="doa" style="display:none;">
+						<div class="modalcontent1">
+							<div class="container">
+								<div class="dropdown">
+								<input type="button" id="A01" value="unite" class="dropbetn1">
+								<div id="M003" onclick="foff" class="dropdown-content1">
+									<div><button id="AA01" class="button button7" onclick="ara()" value="المتر مربع"> المتر مربع </button></div>
+									<div><button id="AA02" class="button button7" onclick="arb()" value="السنتيمتر مربع"> السنتيمتر مربع </button></div>
+									<div><button id="AA03" class="button button7" onclick="arc()" value="المليمتر مربع"> المليمتر مربع </button></div>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+
+					<div  id="ecps1" class="doa" style="display:none;">
+						<div class="modalcontent1">
+							<div class="container">
+								<div class="dropdown">
+								<input type="button" id="A02" value="unite" class="dropbetn1">
+								<div id="M003" onclick="foff" class="dropdown-content1">
+									<div><button id="A101" class="button button7" onclick="ar1()" value="المتر مربع"> المتر مربع </button></div>
+									<div><button id="A102" class="button button7" onclick="ar2()" value="السنتيمتر مربع"> السنتيمتر مربع </button></div>
+									<div><button id="A103" class="button button7" onclick="ar3()" value="المليمتر مربع"> المليمتر مربع </button></div>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+				<div style="display: flex; justify-content: space-around;">
+
+					<div id="pod" class="doa" style="display:none;">
+						<div class="modalcontent1">
+							<div class="container">
+								<div class="dropdown">
+								<input type="button" id="w01" value="unite" class="dropbetn1">
+								<div id="M003" onclick="foff" class="dropdown-content1">
+									<div><button id="wA01" class="button button7" onclick="wa()" value="الطن"> الطن </button></div>
+									<div><button id="wA02" class="button button7" onclick="wb()" value="الكيلو غرام"> الكيلو غرام </button></div>
+									<div><button id="wA03" class="button button7" onclick="wc()" value="الكيلو نيوتن"> الكيلو نيوتن </button></div>
+									<div><button id="wA04" class="button button7" onclick="wd()" value="النيوتن"> النيوتن </button></div>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+
+					<div id="pod1" onclick="foff" class="doa" style="display:none;">
+						<div class="modalcontent1">
+							<div class="container">
+								<div class="dropdown">
+								<input type="button" id="w02" value="unite" class="dropbetn1">
+								<div id="M003" class="dropdown-content1">
+									<div><button id="w101" class="button button7" onclick="w1()" value="الطن"> الطن </button></div>
+									<div><button id="w102" class="button button7" onclick="w2()" value="الكيلو غرام"> الكيلو غرام </button></div>
+									<div><button id="w103" class="button button7" onclick="w3()" value="الكيلو نيوتن"> الكيلو نيوتن </button></div>
+									<div><button id="w104" class="button button7" onclick="w4()" value="النيوتن"> النيوتن </button></div>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+				<div style="display: flex; justify-content: space-around;">
+
+					<div id="spe" class="doa" style="display:none;">
+						<div class="modalcontent1">
+							<div class="container">
+								<div class="dropdown">
+								<input type="button" id="S01" value="unite" class="dropbetn1">
+								<div id="M003" onclick="foff" class="dropdown-content1">
+									<div><button id="SA01" class="button button7" onclick="sa()" value="العقدة"> العقدة </button></div>
+									<div><button id="SA02" class="button button7" onclick="sb()" value="كيلومترفي الساعة"> كيلومترفي الساعة </button></div>
+									<div><button id="SA03" class="button button7" onclick="sc()" value="مترفي الثانية"> مترفي الثانية </button></div>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+
+					<div id="spe1" onclick="foff" class="doa" style="display:none;">
+						<div class="modalcontent1">
+							<div class="container">
+								<div class="dropdown">
+								<input type="button" id="S02" value="unite" class="dropbetn1">
+								<div id="M003" class="dropdown-content1">
+									<div><button id="S101" class="button button7" onclick="s1()" value="العقدة"> العقدة </button></div>
+									<div><button id="S102" class="button button7" onclick="s2()" value="كيلومترفي الساعة"> كيلومترفي الساعة </button></div>
+									<div><button id="S103" class="button button7" onclick="s3()" value="مترفي الثانية"> مترفي الثانية </button></div>
+								</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+
+				<div id="SOLITION" style="display: flex; justify-content: space-around; display:none;">
+					<div class="outx">
+					<input type="text" id="outx" onchange="sol('=')"> =
+					<input type="text" id="outx1" onchange="sol1('=')">
+				 </div>
+				</div>
+
+
+				<input type="button" id="play" onclick="sol('=')" style="display:none;">
+				<input type="button" id="play1" onclick="sol1('=')" style="display:none;">
+
+
+	    	</div>
+			</div>
+		</div>
+	</body>
+	<script>
+	function M1(){
+		var off = document.getElementById('M001');
+		var on = document.getElementById('M002');
+		var on1 = document.getElementById('M003');
+		var sol55 = document.getElementById('SOLITION');
+		sol55.style.display = "block";
+		on.style.display = "block";
+		on1.style.display = "block";
+		off.style.display = "none";
+	}
+	function M2(){
+		var off = document.getElementById('M001');
+		var on = document.getElementById('M002');
+		var on1 = document.getElementById('M003');
+		on.style.display = "none";
+		on1.style.display = "none";
+		off.style.display = "block";
+	}
+function aa() {
+  var bb = document.getElementById("MA01").value;
+	var on1 = document.getElementById('M003');
+	var on21 = document.getElementById('dist1');
+	var on2 = document.getElementById('dist');
+	var on3 = document.getElementById('ecps');
+	var on31 = document.getElementById('ecps1');
+	var on4 = document.getElementById('pod');
+	var on41 = document.getElementById('pod1');
+	var op1 = document.getElementById('OPI1');
+	var on5 = document.getElementById('spe');
+	var on51 = document.getElementById('spe1');
+	var off = document.getElementById('M001');
+	var on = document.getElementById('M002');
+	on.style.display = "none";
+	off.style.display = "block";
+	on5.style.display = "none";
+	on51.style.display = "none";
+	op1.style.display = "none";
+	on41.style.display = "none";
+	on31.style.display = "none";
+	on4.style.display = "none";
+	on3.style.display = "none";
+	on2.style.display = "block";
+	on21.style.display = "block";
+	on1.style.display = "none";
+	D1=bb
+	document.getElementById("M001").value = D1;
+	document.getElementById("M002").value = D1;
+}<!-- distans -->
+function ab() {
+		var bb = document.getElementById("MA02").value;
+		var on1 = document.getElementById('M003');
+		var on2 = document.getElementById('dist');
+		var on21 = document.getElementById('dist1');
+		var on3 = document.getElementById('ecps');
+		var on31 = document.getElementById('ecps1');
+		var on4 = document.getElementById('pod');
+	 	var on41 = document.getElementById('pod1');
+		var op1 = document.getElementById('OPI1');
+		var on5 = document.getElementById('spe');
+		var on51 = document.getElementById('spe1');
+		var off = document.getElementById('M001');
+		var on = document.getElementById('M002');
+		on.style.display = "none";
+		off.style.display = "block";
+		on5.style.display = "none";
+		on51.style.display = "none";
+		op1.style.display = "none";
+		on41.style.display = "none";
+		on4.style.display = "none";
+		on31.style.display = "block";
+		on3.style.display = "block";
+		on2.style.display = "none";
+		on21.style.display = "none";
+		on1.style.display = "none";
+		D2=bb
+		document.getElementById("M001").value = D2;
+		document.getElementById("M002").value = D2;
+}
+function ac() {
+	var bb = document.getElementById("MA03").value;
+	var on1 = document.getElementById('M003');
+	var on21 = document.getElementById('dist1');
+	var on31 = document.getElementById('ecps1');
+	var on2 = document.getElementById('dist');
+	var on3 = document.getElementById('ecps');
+	var on4 = document.getElementById('pod');
+	var on41 = document.getElementById('pod1');
+	var op1 = document.getElementById('OPI1');
+	var on5 = document.getElementById('spe');
+	var on51 = document.getElementById('spe1');
+	var off = document.getElementById('M001');
+	var on = document.getElementById('M002');
+	on.style.display = "none";
+	off.style.display = "block";
+	on5.style.display = "none";
+	on51.style.display = "none";
+	op1.style.display = "none";
+	on4.style.display = "block";
+	on41.style.display = "block";
+	on3.style.display = "none";
+	on2.style.display = "none";
+	on31.style.display = "none";
+	on21.style.display = "none";
+	on1.style.display = "none";
+	D3=bb
+	document.getElementById("M001").value = D3;
+	document.getElementById("M002").value = D3;
+}
+function ad() {
+	var bb = document.getElementById("MA04").value;
+	var on1 = document.getElementById('M003');
+	var on21 = document.getElementById('dist1');
+	var on31 = document.getElementById('ecps1');
+	var on2 = document.getElementById('dist');
+	var on3 = document.getElementById('ecps');
+	var on4 = document.getElementById('pod');
+	var on41 = document.getElementById('pod1');
+	var op1 = document.getElementById('OPI1');
+	var on5 = document.getElementById('spe');
+	var on51 = document.getElementById('spe1');
+	var off = document.getElementById('M001');
+	var on = document.getElementById('M002');
+	on.style.display = "none";
+	off.style.display = "block";
+	on5.style.display = "block";
+	on51.style.display = "block";
+	op1.style.display = "none";
+	on4.style.display = "none";
+	on41.style.display = "none";
+	on3.style.display = "none";
+	on2.style.display = "none";
+	on31.style.display = "none";
+	on21.style.display = "none";
+	on1.style.display = "none";
+	D3=bb
+	document.getElementById("M001").value = D3;
+	document.getElementById("M002").value = D3;
+}
+
+function da() {
+	var D = document.getElementById("DA01").value;
+	document.getElementById("D01").value = D;
+	document.getElementById("play1").click();
+}
+function db() {
+	var D = document.getElementById("DA02").value;
+	document.getElementById("D01").value = D;
+	document.getElementById("play1").click();
+}
+function dc() {
+	var D = document.getElementById("DA03").value;
+	document.getElementById("D01").value = D;
+	document.getElementById("play1").click();
+}
+function dd() {
+	var D = document.getElementById("DA04").value;
+	document.getElementById("D01").value = D;
+	document.getElementById("play1").click();
+}
+
+function d1() {
+	var D = document.getElementById("D101").value;
+	document.getElementById("D02").value = D;
+	document.getElementById("play").click();
+}
+function d2() {
+	var D = document.getElementById("D102").value;
+	document.getElementById("D02").value = D;
+	document.getElementById("play").click();
+}
+function d3() {
+	var D = document.getElementById("D103").value;
+	document.getElementById("D02").value = D;
+	document.getElementById("play").click();
+}
+function d4() {
+	var D = document.getElementById("D104").value;
+	document.getElementById("D02").value = D;
+	document.getElementById("play").click();
+}
+
+function ara() {
+	var D = document.getElementById("AA01").value;
+	document.getElementById("A01").value = D;
+	document.getElementById("play1").click();
+}
+function arb() {
+	var D = document.getElementById("AA02").value;
+	document.getElementById("A01").value = D;
+	document.getElementById("play1").click();
+}
+function arc() {
+	var D = document.getElementById("AA03").value;
+	document.getElementById("A01").value = D;
+	document.getElementById("play1").click();
+}
+
+function ar1() {
+	var D = document.getElementById("A101").value;
+	document.getElementById("A02").value = D;
+	document.getElementById("play").click();
+}
+function ar2() {
+	var D = document.getElementById("A102").value;
+	document.getElementById("A02").value = D;
+	document.getElementById("play").click();
+}
+function ar3() {
+	var D = document.getElementById("A103").value;
+	document.getElementById("A02").value = D;
+	document.getElementById("play").click();
+}
+
+function wa() {
+	var D = document.getElementById("wA01").value;
+	document.getElementById("w01").value = D;
+	document.getElementById("play1").click();
+}
+function wb() {
+	var D = document.getElementById("wA02").value;
+	document.getElementById("w01").value = D;
+	document.getElementById("play1").click();
+}
+function wc() {
+	var D = document.getElementById("wA03").value;
+	document.getElementById("w01").value = D;
+	document.getElementById("play1").click();
+}
+function wd() {
+	var D = document.getElementById("wA04").value;
+	document.getElementById("w01").value = D;
+	document.getElementById("play1").click();
+}
+
+function w1() {
+	var D = document.getElementById("w101").value;
+	document.getElementById("w02").value = D;
+	document.getElementById("play").click();
+}
+function w2() {
+	var D = document.getElementById("w102").value;
+	document.getElementById("w02").value = D;
+	document.getElementById("play").click();
+}
+function w3() {
+	var D = document.getElementById("w103").value;
+	document.getElementById("w02").value = D;
+	document.getElementById("play").click();
+}
+function w4() {
+	var D = document.getElementById("w104").value;
+	document.getElementById("w02").value = D;
+	document.getElementById("play").click();
+}
+
+function sa() {
+	var D = document.getElementById("SA01").value;
+	document.getElementById("S01").value = D;
+	document.getElementById("play1").click();
+}
+function sb() {
+	var D = document.getElementById("SA02").value;
+	document.getElementById("S01").value = D;
+	document.getElementById("play1").click();
+}
+function sc() {
+	var D = document.getElementById("SA03").value;
+	document.getElementById("S01").value = D;
+	document.getElementById("play1").click();
+}
+
+function s1() {
+	var D = document.getElementById("S101").value;
+	document.getElementById("S02").value = D;
+	document.getElementById("play").click();
+}
+function s2() {
+	var D = document.getElementById("S102").value;
+	document.getElementById("S02").value = D;
+	document.getElementById("play").click();
+}
+function s3() {
+	var D = document.getElementById("S103").value;
+	document.getElementById("S02").value = D;
+	document.getElementById("play").click();
+}
+
+function sol(bb){
+ var on2 = document.getElementById('dist');
+ var on3 = document.getElementById('ecps');
+ var on4 = document.getElementById('pod');
+ var on5 = document.getElementById('spe');
+ var but1 = document.getElementById('D01').value;
+ var but2 = document.getElementById('D02').value;
+ var but3 = document.getElementById('A01').value;
+ var but4 = document.getElementById('A02').value;
+ var but5 = document.getElementById('w01').value;
+ var but6 = document.getElementById('w02').value;
+ var but7 = document.getElementById('S01').value;
+ var but8 = document.getElementById('S02').value;
+ var XA = document.getElementById('outx').value;
+	switch (bb) {
+		case '=':{
+			if (XA>0){
+			if (on2.style.display == "block"){
+				if (but1 == "كيلومتر"){
+					if (but2 == "كيلومتر"){
+						D=XA*1;
+					}
+					if (but2 == "المتر"){
+							D=XA*1000;
+					}
+					if (but2 == "سنتيمتر"){
+							D=XA*100000;
+					}
+					if (but2 == "مليمتر"){
+							D=XA*1000000;
+					}
+				}
+				if (but1 == "المتر"){
+					if (but2 == "كيلومتر"){
+						D=XA/1000;
+					}
+					if (but2 == "المتر"){
+						D=XA*1;
+					}
+					if (but2 == "سنتيمتر"){
+						D=XA*100;
+					}
+					if (but2 == "مليمتر"){
+						D=XA*1000;
+					}
+				}
+				if (but1 == "سنتيمتر"){
+					if (but2 == "كيلومتر"){
+						D=XA/10000;
+					}
+					if (but2 == "المتر"){
+						D=XA/100;
+					}
+					if (but2 == "سنتيمتر"){
+						D=XA*1;
+					}
+					if (but2 == "مليمتر"){
+						D=XA*10;
+					}
+				}
+				if (but1 == "مليمتر"){
+					if (but2 == "كيلومتر"){
+						D=XA/1000000;
+					}
+					if (but2 == "المتر"){
+						D=XA/1000;
+					}
+					if (but2 == "سنتيمتر"){
+						D=XA/10;
+					}
+					if (but2 == "مليمتر"){
+						D=XA*1;
+					}
+				}
+			}<!--distance-->
+			if (on3.style.display == "block"){
+				if (but3 == "المتر مربع"){
+					if (but4 == "المتر مربع"){
+						D=XA*1;
+					}
+					if (but4 == "السنتيمتر مربع"){
+						D=XA*10000;
+					}
+					if (but4 == "المليمتر مربع"){
+						D=XA*1000000;
+					}
+				}
+				if (but3 == "السنتيمتر مربع"){
+					if (but4 == "المتر مربع"){
+						D=XA/10000;
+					}
+					if (but4 == "السنتيمتر مربع"){
+						D=XA*1;
+					}
+					if (but4 == "المليمتر مربع"){
+						D=XA/0.01;
+					}
+				}
+				if (but3 == "المليمتر مربع"){
+					if (but4 == "المتر مربع"){
+						D=XA/1000000;
+					}
+					if (but4 == "السنتيمتر مربع"){
+						D=XA/100;
+					}
+					if (but4 == "المليمتر مربع"){
+						D=XA*1;
+					}
+				}
+			}<!--aera-->
+			if (on4.style.display == "block"){
+				if(but5 == "الطن"){
+					if(but6 == "الطن"){
+						D=XA*1;
+					}
+					if(but6 == "الكيلو غرام"){
+						D=XA*1000;
+					}
+					if(but6 == "الكيلو نيوتن"){
+						D=XA*10;
+					}
+					if(but6 == "النيوتن"){
+						D=XA*10000;
+					}
+				}
+				if(but5 == "الكيلو غرام"){
+					if(but6 == "الطن"){
+						D=XA/1000;
+					}
+					if(but6 == "الكيلو غرام"){
+						D=XA*1;
+					}
+					if(but6 == "الكيلو نيوتن"){
+						D=XA/100;
+					}
+					if(but6 == "النيوتن"){
+						D=XA*10;
+					}
+				}
+				if(but5 == "الكيلو نيوتن"){
+					if(but6 == "الطن"){
+						D=XA/10;
+					}
+					if(but6 == "الكيلو غرام"){
+						D=XA*100;
+					}
+					if(but6 == "الكيلو نيوتن"){
+						D=XA*1;
+					}
+					if(but6 == "النيوتن"){
+						D=XA*1000;
+					}
+				}
+				if(but5 == "النيوتن"){
+					if(but6 == "الطن"){
+						D=XA/10000;
+					}
+					if(but6 == "الكيلو غرام"){
+						D=XA/10;
+					}
+					if(but6 == "الكيلو نيوتن"){
+						D=XA/1000;
+					}
+					if(but6 == "النيوتن"){
+						D=XA*1;
+					}
+				}
+			}<!--weight-->
+			if (on5.style.display == "block"){
+				if(but7 == "العقدة"){
+					if(but8 == "العقدة"){
+						D=XA*1;
+					}
+					if(but8 == "كيلومترفي الساعة"){
+						D=XA*1.852;
+					}
+					if(but8 == "مترفي الثانية"){
+						D=XA*0.51444444;
+					}
+				}
+				if(but7 == "كيلومترفي الساعة"){
+					if(but8 == "العقدة"){
+						D=XA/1.852;
+					}
+					if(but8 == "كيلومترفي الساعة"){
+						D=XA*1;
+					}
+					if(but8 == "مترفي الثانية"){
+						D=XA*(1/3.6);
+					}
+				}
+				if(but7 == "مترفي الثانية"){
+					if(but8 == "العقدة"){
+						D=XA/0.51444444;
+					}
+					if(but8 == "كيلومترفي الساعة"){
+						D=XA*3.6;
+					}
+					if(but8 == "مترفي الثانية"){
+						D=XA*1;
+					}
+				}
+			}<!--speed-->
+		}else {
+			// do nothiong
+		}
+		MY=(Math.round(D));
+				 if (MY > D){
+							M=(MY-1);
+							N=((D-M)*1000);
+							R=((Math.round(N))/1000);
+							D=(M+R);
+					 } else {
+							M=(MY);
+							N=((D-M)*1000);
+							R=((Math.round(N))/1000);
+							D=(M+R);
+						}
+		}
+			break;
+		default:
+  }
+	document.getElementById('outx1').value=D;
+}
+
+function sol1(bb){
+ var on2 = document.getElementById('dist');
+ var on3 = document.getElementById('ecps');
+ var on4 = document.getElementById('pod');
+ var on5 = document.getElementById('spe');
+ var but1 = document.getElementById('D01').value;
+ var but2 = document.getElementById('D02').value;
+ var but3 = document.getElementById('A01').value;
+ var but4 = document.getElementById('A02').value;
+ var but5 = document.getElementById('w01').value;
+ var but6 = document.getElementById('w02').value;
+ var but7 = document.getElementById('S01').value;
+ var but8 = document.getElementById('S02').value;
+ var XA = document.getElementById('outx1').value;
+	switch (bb) {
+		case '=':{
+			if (XA>0){
+			if (on2.style.display == "block"){
+				if (but1 == "كيلومتر"){
+					if (but2 == "كيلومتر"){
+						D=XA*1;
+					}
+					if (but2 == "المتر"){
+							D=XA/1000;
+					}
+					if (but2 == "سنتيمتر"){
+							D=XA/100000;
+					}
+					if (but2 == "مليمتر"){
+							D=XA/1000000;
+					}
+				}
+				if (but1 == "المتر"){
+					if (but2 == "كيلومتر"){
+						D=XA*1000;
+					}
+					if (but2 == "المتر"){
+						D=XA*1;
+					}
+					if (but2 == "سنتيمتر"){
+						D=XA/100;
+					}
+					if (but2 == "مليمتر"){
+						D=XA/1000;
+					}
+				}
+				if (but1 == "سنتيمتر"){
+					if (but2 == "كيلومتر"){
+						D=XA*10000;
+					}
+					if (but2 == "المتر"){
+						D=XA*100;
+					}
+					if (but2 == "سنتيمتر"){
+						D=XA*1;
+					}
+					if (but2 == "مليمتر"){
+						D=XA/10;
+					}
+				}
+				if (but1 == "مليمتر"){
+					if (but2 == "كيلومتر"){
+						D=XA*1000000;
+					}
+					if (but2 == "المتر"){
+						D=XA*1000;
+					}
+					if (but2 == "سنتيمتر"){
+						D=XA*10;
+					}
+					if (but2 == "مليمتر"){
+						D=XA*1;
+					}
+				}
+			}<!--distance-->
+			if (on3.style.display == "block"){
+				if (but3 == "المتر مربع"){
+					if (but4 == "المتر مربع"){
+						D=XA/1;
+					}
+					if (but4 == "السنتيمتر مربع"){
+						D=XA/10000;
+					}
+					if (but4 == "المليمتر مربع"){
+						D=XA/1000000;
+					}
+				}
+				if (but3 == "السنتيمتر مربع"){
+					if (but4 == "المتر مربع"){
+						D=XA*10000;
+					}
+					if (but4 == "السنتيمتر مربع"){
+						D=XA/1;
+					}
+					if (but4 == "المليمتر مربع"){
+						D=XA*0.01;
+					}
+				}
+				if (but3 == "المليمتر مربع"){
+					if (but4 == "المتر مربع"){
+						D=XA*1000000;
+					}
+					if (but4 == "السنتيمتر مربع"){
+						D=XA*100;
+					}
+					if (but4 == "المليمتر مربع"){
+						D=XA*1;
+					}
+				}
+			}<!--aera-->
+			if (on4.style.display == "block"){
+				if(but5 == "الطن"){
+					if(but6 == "الطن"){
+						D=XA*1;
+					}
+					if(but6 == "الكيلو غرام"){
+						D=XA/1000;
+					}
+					if(but6 == "الكيلو نيوتن"){
+						D=XA/10;
+					}
+					if(but6 == "النيوتن"){
+						D=XA/10000;
+					}
+				}
+				if(but5 == "الكيلو غرام"){
+					if(but6 == "الطن"){
+						D=XA*1000;
+					}
+					if(but6 == "الكيلو غرام"){
+						D=XA/1;
+					}
+					if(but6 == "الكيلو نيوتن"){
+						D=XA*100;
+					}
+					if(but6 == "النيوتن"){
+						D=XA/10;
+					}
+				}
+				if(but5 == "الكيلو نيوتن"){
+					if(but6 == "الطن"){
+						D=XA*10;
+					}
+					if(but6 == "الكيلو غرام"){
+						D=XA/100;
+					}
+					if(but6 == "الكيلو نيوتن"){
+						D=XA/1;
+					}
+					if(but6 == "النيوتن"){
+						D=XA/1000;
+					}
+				}
+				if(but5 == "النيوتن"){
+					if(but6 == "الطن"){
+						D=XA*10000;
+					}
+					if(but6 == "الكيلو غرام"){
+						D=XA*10;
+					}
+					if(but6 == "الكيلو نيوتن"){
+						D=XA*1000;
+					}
+					if(but6 == "النيوتن"){
+						D=XA*1;
+					}
+				}
+			}<!--weight-->
+			if (on5.style.display == "block"){
+				if(but7 == "العقدة"){
+					if(but8 == "العقدة"){
+						D=XA*1;
+					}
+					if(but8 == "كيلومترفي الساعة"){
+						D=XA/1.852;
+					}
+					if(but8 == "مترفي الثانية"){
+						D=XA/(1.852/3.6);
+					}
+				}
+				if(but7 == "كيلومترفي الساعة"){
+					if(but8 == "العقدة"){
+						D=XA*1.852;
+					}
+					if(but8 == "كيلومترفي الساعة"){
+						D=XA*1;
+					}
+					if(but8 == "مترفي الثانية"){
+						D=XA*3.6;
+					}
+				}
+				if(but7 == "مترفي الثانية"){
+					if(but8 == "العقدة"){
+						D=XA*(1.852/3.6);
+					}
+					if(but8 == "كيلومترفي الساعة"){
+						D=XA/3.6;
+					}
+					if(but8 == "مترفي الثانية"){
+						D=XA*1;
+					}
+				}
+			}<!--speed-->
+			}else {
+			// do nothiong
+		}
+		MY=(Math.round(D));
+				 if (MY > D){
+							M=(MY-1);
+							N=((D-M)*1000);
+							R=((Math.round(N))/1000);
+							D=(M+R);
+					 } else {
+							M=(MY);
+							N=((D-M)*1000);
+							R=((Math.round(N))/1000);
+							D=(M+R);
+						}
+		}
+			break;
+		default:
+  }
+	document.getElementById('outx').value=D;
+}
+
+
+var button001 = document.getElementById("outx");
+	button001.addEventListener("keypress", function(event) {
+  	if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("play").click();
+  }
+});
+var button002 = document.getElementById("outx1");
+	button002.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("play1").click();
+  }
+});
+
+	</script>
+</html>

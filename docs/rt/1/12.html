@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="Routes">
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 102px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button6 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.button6:hover {
+  background-color: #4CAF50;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2.4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(39px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+	<center>
+	<body>
+	<h2>Routes</h2>
+  n = 0
+  <label class="switch">
+  <input type="checkbox" id="myig" value="false" onclick="onler('+')">
+  <span class="slider round"></span>
+</label>
+        n ≠ 0
+<br>
+  <p id="t1" style="display:none">n = </p>
+  <input type="text" id="text" style="display:none">
+  <br>P = 6.5 في الغالب
+  <br>P = <input type="text" id="X1"></br>
+  <br>I = <input type="text" id="X2"></br>
+  <br><button class="button button6" onclick="aa('=')">1</button></br>
+  <br>e = <input type="text" id="geS">
+  <script>
+  function onler(bb){
+    var checkBox = document.getElementById('myig');
+    var text = document.getElementById('text')
+    var text1 = document.getElementById('t1')
+    switch (bb) {
+      case '+':{
+        if (checkBox.checked == true){
+         text.style.display = "block";
+         text1.style.display = "block";
+         } else {
+            text.style.display = "none";
+            text1.style.display = "none";
+  }
+      }
+        break;
+      default:
+    }
+  }
+  function aa(bb){
+    var X1 = Number(document.getElementById('X1').value);
+    var X2 = Number(document.getElementById('X2').value);
+    var X3 = Number(document.getElementById('text').value);
+    var M;
+    var S1=0;
+    switch (bb) {
+      case '=':{
+          H = 1;
+        S1 =((((100)+((150)*(Math.pow(X1,(1/2)))))/((X2)+(5)))*(H));
+      }
+        break;
+      default:
+    }
+    document.getElementById('geS').value=S1;
+  }
+  </script>
+	</body>
+</center>
+</html>

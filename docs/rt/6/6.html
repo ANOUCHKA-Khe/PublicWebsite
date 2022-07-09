@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="Routes">
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 102px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button6 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.button6:hover {
+  background-color: #4CAF50;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.button7 {
+  border: none;
+  color: white;
+  padding: 16px 52px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button7 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+.button7:hover {
+  background-color: #008CBA;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 68px;;
+  font-size: 16px;
+  border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+	<center>
+	<body>
+	<h2>Routes</h2>
+  <h2> عدد الممرات في الطريق </h2>
+  <br>V(Km/h) = <input type="text" id="X1"><br>
+  <br>Teff(UVP/j) = <input type="text" id="X2"><br>
+  <br>
+
+  <div class="dropdown">
+  <button class="dropbtn">E = </button>
+  <div class="dropdown-content">
+    <div><button class="button button7" onclick="ab('=')">1</button></div>
+    <div><button class="button button7" onclick="ac('=')">2</button></div>
+    <div><button class="button button7" onclick="ad('=')">3</button></div>
+  </div>
+</div>
+<br>
+  <br><button id="myBtn" class="button button6" onclick="aa('=')">النتيجة</button></br>
+  <element dir="rtl"><br> عدد الممرات في الطريق <br>
+  <br><element dir="ltr">n = <input type="text" id="geS">
+  <input type="text" id="E" style="display:none">
+  <script>
+  function ab(bb){
+    switch (bb) {
+      case '=':{
+        V=1;
+      }
+        break;
+      default:
+    }
+    document.getElementById('E').value=V;
+  }
+  function ac(bb){
+    switch (bb) {
+      case '=':{
+        V=2;
+      }
+        break;
+      default:
+    }
+    document.getElementById('E').value=V;
+  }
+  function ad(bb){
+    switch (bb) {
+      case '=':{
+        V=3;
+      }
+        break;
+      default:
+    }
+    document.getElementById('E').value=V;
+  }
+  function aa(bb){
+    var V=Number(document.getElementById('X1').value);
+    var Teff=Number(document.getElementById('X2').value);
+    var E=Number(document.getElementById('E').value);
+    var N;
+    switch (bb) {
+      case '=':{
+        if (E == 1) {
+          K1=0.75;
+          K2=1;
+        }
+        if (E == 2){
+          K1=0.85;
+          if (V<=120 && V>50){
+            K2=0.99;
+          }if (V<50){
+            K2=0.98;
+          }
+        }
+        if (E == 3){
+          K1=0.925;
+          if (V<=120 && V>900){
+            K2=0.91;
+          }if (V<=90 && V>70){
+            K2=0.95;
+          }if (V<=70 && V>50){
+            K2=0.97;
+          }if (V<=50){
+            K2=0.96;
+          }
+        }
+        Q=(0.12*Teff);
+        CTh=(Q/(K1*K2));
+        if (CTh <= 2000){
+          N=2;
+        }if (CTh <= 3200 && CTh>2000){
+          N=3;
+        }if (CTh <= 4000 && CTh>3200){
+          N=4;
+        }if (CTh <= 5200 && CTh>4000){
+          N=5;
+        }if (CTh <= 6000 && CTh>5200){
+          N=6;
+        }if (CTh <= 7200 && CTh>6000){
+          N=7;
+        }
+      }
+        break;
+      default:
+    }
+    document.getElementById('geS').value=N;
+  }
+  document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+  </script>
+	</body>
+</center>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="Routes">
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 102px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button6 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.button6:hover {
+  background-color: #4CAF50;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2.4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(39px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+	<center>
+	<body>
+	<h2>Dimensionnement - Lisses</h2>
+  ELS
+  <label class="switch">
+  <input type="checkbox" id="myig" value="false" onclick="onler('+')">
+  <span class="slider round"></span>
+</label>
+        ELU
+<br>
+<p id="t1" > ELS </p>
+<p id="t2" style="display:none"> ELU </p>
+  <br>G(kg/m) = <input type="text" id="X1"></br>
+  <br>V(kg/m) = <input type="text" id="X3"></br>
+  <br>L(m) = <input type="text" id="X4"></br>
+  <br><button id="myBtn" class="button button6" onclick="aa('=');bb('=');cc('=');dd('=');">النتيجة</button></br>
+  <div style="display: flex; justify-content: space-around">
+  <div><br>Iz(cm⁴) = <input type="text" id="IZ"></div>
+  <div><br>Iy(cm⁴) = <input type="text" id="IY"></div>
+</div>
+  <br><input type="text" id="P1" style="display:none">
+  <br><input type="text" id="P2" style="display:none">
+  <script>
+function onler(bb){
+    var checkBox = document.getElementById('myig');
+    var text = document.getElementById('t2')
+    var text1 = document.getElementById('t1')
+    switch (bb) {
+      case '+':{
+        if (checkBox.checked == true){
+         text.style.display = "block";
+         text1.style.display = "none";
+         } else {
+            text.style.display = "none";
+            text1.style.display = "block";
+  }
+      }
+        break;
+      default:
+    }
+  }
+function aa(bb){
+    var checkBox = document.getElementById('myig');
+    var GY=Number(document.getElementById('X1').value);
+    var L=Number(document.getElementById('X4').value);
+    var PY;
+    switch (bb) {
+      case '=':{
+        if (checkBox.checked == true){
+          PY=(1.35*GY);
+         } else {
+          PY=GY;
+          }
+      }
+        break;
+      default:
+    }
+    document.getElementById('P1').value=PY;
+  }
+function bb(bb) {
+    var checkBox = document.getElementById('myig');
+    var VZ=Number(document.getElementById('X3').value);
+    var L=Number(document.getElementById('X4').value);
+    var PZ;
+    switch (bb) {
+      case '=':{
+        if (checkBox.checked == true){
+          PZ=(1.5*VZ);
+         } else {
+           PZ=VZ;
+  }
+      }
+        break;
+      default:
+    }
+    document.getElementById('P2').value=PZ;
+  }
+function cc(bb){
+  var L=Number(document.getElementById('X4').value);
+  var P=Number(document.getElementById('P1').value);
+  var IX;
+  switch (bb) {
+    case '=':{
+      S1=(1000*P*(Math.pow(10,-2))*(Math.pow((L*100),3)))/(384*2.1*(Math.pow(10,6)));
+      MY=(Math.round(S1));
+      if (MY > S1){
+           M=(MY-1);
+           N=((S1-M)*1000);
+           R=((Math.round(N))/1000);
+           IX=(M+R);
+        } else {
+           M=(MY);
+           N=((S1-M)*1000);
+           R=((Math.round(N))/1000);
+           IX=(M+R);
+         }
+    }
+      break;
+    default:
+  }
+  document.getElementById('IY').value=IX;
+}
+function dd(bb){
+  var L=Number(document.getElementById('X4').value);
+  var P=Number(document.getElementById('P2').value);
+  var IZ;
+  switch (bb) {
+    case '=':{
+      S1=(1000*P*(Math.pow(10,-2))*(Math.pow((L*100),3)))/(384*2.1*(Math.pow(10,6)));
+      MY=(Math.round(S1));
+					   if (MY > S1){
+    					    M=(MY-1);
+					        N=((S1-M)*1000);
+    					    R=((Math.round(N))/1000);
+ 					        IZ=(M+R);
+							 } else {
+  					      M=(MY);
+					        N=((S1-M)*1000);
+ 					        R=((Math.round(N))/1000);
+					        IZ=(M+R);
+    					  }
+
+    }
+      break;
+    default:
+  }
+  document.getElementById('IZ').value=IZ;
+}
+  document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+  </script>
+	</body>
+</center>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="Routes">
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 102px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button6 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.button6:hover {
+  background-color: #4CAF50;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2.4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(39px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+	<center>
+	<body>
+	<h2>Routes</h2>
+  <h2>حساب قطرالمنحدر</h2>
+  V(Km/h) = <input type="text" id="X1"></br>
+  <br><button id="myBtn" class="button button6" onclick="aa('=');bb('=');cc('=')">النتيجة</button></br>
+  <br> قطر المنحدر <br>
+  <br>RHm(m) = <input type="text" id="geS"><br>
+  <br>RHn(m) = <input type="text" id="gtS"><br>
+  <br>Rnd(m) = <input type="text" id="guS"><br>
+  <script>
+  function aa(bb){
+    var V1=Number(document.getElementById('X1').value);
+    var R;
+    switch (bb) {
+      case '=':{
+        if (V1>=70 && V1!=0){
+          d=0.07;
+        if (V1>=70 && V1<80) {
+          ft=0.1375;
+        }if (V1>=80 && V1<90) {
+          ft=0.125;
+        }if (V1>=90 && V1<100) {
+          ft=0.115;
+        }if (V1>=100 && V1<110) {
+          ft=0.1075;
+        }if (V1>=110 && V1<120) {
+          ft=0.1025;
+        }if (V1>=120 ) {
+          ft=0.10;
+        }
+        R=((Math.pow(V1,2))/(127*(d+ft)));
+      }if (V1<70 && V1!=0) {
+        d=0.08;
+        if (V1<=70 && V1>60) {
+          ft=0.1525;
+        }if (V1<=60 && V1>50) {
+          ft=0.1825;
+        }if (V1<=50 && V1>40) {
+          ft=0.2275;
+        }if (V1<=40) {
+          ft=0.25;
+        }
+        R=((Math.pow(V1,2))/(127*(d+ft)));
+      }else {
+        //do nothing
+      }
+      U=(Math.round(R));
+					   if (U > R){
+    					    M=(U-1);
+					        N=((S10-M)*1000);
+    					    Y=((Math.round(N))/1000);
+ 					        R=(M+Y);
+							 } else {
+  					      M=(U);
+					        N=((R-M)*1000);
+ 					        Y=((Math.round(N))/1000);
+					        R=(M+Y);
+    					  }
+      }
+        break;
+      default:
+    }
+    document.getElementById('geS').value=R;
+  }
+  function bb(bb){
+    var V1=Number(document.getElementById('X1').value);
+    var R;
+    switch (bb) {
+      case '=':{
+        if (V1>=100 && V1!=0){
+          d=0.04;
+        if (V1>=100 && V1<110) {
+          ft=0.1075;
+        }if (V1>=110 && V1<120) {
+          ft=0.1025;
+        }if (V1>=120 ) {
+          ft=0.10;
+        }
+        V1=V1+10;
+        R=((Math.pow(V1,2))/(127*(d+ft)));
+      }if (V1<100 && V1!=0) {
+        d=0.05;
+        if (V1<100 && V1>90) {
+          ft=0.115;
+        }if (V1<=90 && V1>80) {
+          ft=0.125;
+        }if (V1<=80 && V1>70) {
+          ft=0.1375;
+        }if (V1<=70 && V1>60) {
+          ft=0.1525;
+        }if (V1<=60 && V1>50) {
+          ft=0.1825;
+        }if (V1<=50 && V1>40) {
+          ft=0.2275;
+        }if (V1<=40) {
+          ft=0.25;
+        }
+        V1=V1+20;
+        R=((Math.pow(V1,2))/(127*(d+ft)));
+      }else {
+        //do nothing
+      }
+      U=(Math.round(R));
+					   if (U > R){
+    					    M=(U-1);
+					        N=((R-M)*1000);
+    					    Y=((Math.round(N))/1000);
+ 					        R=(M+Y);
+							 } else {
+  					      M=(U);
+					        N=((R-M)*1000);
+ 					        Y=((Math.round(N))/1000);
+					        R=(M+Y);
+                }
+    }
+        break;
+      default:
+    }
+    document.getElementById('gtS').value=R;
+  }
+  function cc(bb){
+    var V1=Number(document.getElementById('X1').value);
+    var R;
+    switch (bb) {
+      case '=':{
+        if ( V1!=0){
+          d=-0.025;
+        if (V1>120) {
+          ft=0.10;
+        }if (V1<=120 && V1>110) {
+          ft=0.1025;
+        }if (V1<=110 && V1>100) {
+          ft=0.1075;
+        }if (V1<=100 && V1>90) {
+          ft=0.115;
+        }if (V1<=90 && V1>80) {
+          ft=0.125;
+        }if (V1<=80 && V1>70) {
+          ft=0.1375;
+        }if (V1<=70 && V1>60) {
+          ft=0.1525;
+        }if (V1<=60 && V1>50) {
+          ft=0.1825;
+        }if (V1<=50 && V1>40) {
+          ft=0.2275;
+        }if (V1<=40) {
+          ft=0.25;
+        }
+        V1=((V1+120)/2);
+        R=((Math.pow(V1,2))/(127*(d+ft)));
+        }
+        U=(Math.round(R));
+  					   if (U > R){
+      					    M=(U-1);
+  					        N=((R-M)*1000);
+      					    Y=((Math.round(N))/1000);
+   					        R=(M+Y);
+  							 } else {
+    					      M=(U);
+  					        N=((R-M)*1000);
+   					        Y=((Math.round(N))/1000);
+  					        R=(M+Y);
+                  }
+    }
+        break;
+      default:
+    }
+    document.getElementById('guS').value=R;
+  }
+  document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+  </script>
+	</body>
+</center>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="Routes">
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 11px 102px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button6 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.button6:hover {
+  background-color: #4CAF50;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.button7 {
+  border: none;
+  color: white;
+  padding: 8px 52px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button7 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+.button7:hover {
+  background-color: #008CBA;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2.4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(39px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 68px;;
+  font-size: 16px;
+  border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+h2 {
+   padding:6px;
+   margin:6px;
+}
+p {
+   padding:5px;
+   margin:4px;
+}
+</style>
+	<center>
+	<body>
+	<h2>Dimensionnement - Panne</h2>
+  ELS
+  <label class="switch">
+  <input type="checkbox" id="myig" value="false" onclick="onler('+')">
+  <span class="slider round"></span>
+</label>
+        ELU
+<br>
+<p id="t1" > ELS </p>
+<p id="t2" style="display:none"> ELU </p>
+<p> Number des Panne </p>
+<div class="dropdown">
+<button class="dropbtn">N = </button>
+<div class="dropdown-content">
+  <div><button class="button button7" onclick="bb('=')">3</button></div>
+  <div><button class="button button7" onclick="bc('=')">4</button></div>
+  <div><button class="button button7" onclick="bd('=')">5</button></div>
+  <div><button class="button button7" onclick="be('=')">6</button></div>
+  <div><button class="button button7" onclick="bf('=')">7</button></div>
+</div>
+</div><br>
+  <p> la charge de Panne sur sens Y </p>
+  Qy(kg/m) = <input type="text" id="X1">
+  <p> loungeur des Panne </p>
+  Ly(m) = <input type="text" id="X2">
+  <p> Espace Entre les Panne </p>
+  E(m) = <input type="text" id="X3"><br>
+  <br><button id="myBtn" class="button button6" onclick="aa('=');cc('=');">النتيجة</button></br>
+  <div style="display: flex; justify-content: space-around">
+  <div><br>A(cm²) = <input type="text" id="IZ"></div>
+  <div><br>Ø(cm) = <input type="text" id="IY"></div>
+</div>
+  <br><input type="text" id="P2" style="display:none">
+  <br><input type="text" id="E" style="display:none">
+  <script>
+function onler(bb){
+    var checkBox = document.getElementById('myig');
+    var text = document.getElementById('t2')
+    var text1 = document.getElementById('t1')
+    switch (bb) {
+      case '+':{
+        if (checkBox.checked == true){
+         text.style.display = "block";
+         text1.style.display = "none";
+         } else {
+            text.style.display = "none";
+            text1.style.display = "block";
+  }
+      }
+        break;
+      default:
+    }
+  }
+function bb(bb){
+ var E;
+ switch (bb) {
+  case '=':{
+    E=3
+  }
+    break;
+  default:
+ }
+ document.getElementById('E').value=E;
+}
+function bc(bb){
+ var E;
+ switch (bb) {
+  case '=':{
+    E=4
+  }
+    break;
+  default:
+ }
+ document.getElementById('E').value=E;
+}
+function bd(bb){
+  var E;
+ switch (bb) {
+  case '=':{
+    E=5
+  }
+    break;
+  default:
+ }
+ document.getElementById('E').value=E;
+}
+function be(bb){
+ var E;
+ switch (bb) {
+  case '=':{
+    E=6
+  }
+    break;
+  default:
+ }
+ document.getElementById('E').value=E;
+}
+function bf(bb){
+ var E;
+ switch (bb) {
+  case '=':{
+    E=7
+  }
+    break;
+  default:
+ }
+ document.getElementById('E').value=E;
+}
+function aa(bb){
+    var QY=Number(document.getElementById('X1').value);
+    var LY=Number(document.getElementById('X2').value);
+    var E=Number(document.getElementById('X3').value);
+    var M=Number(document.getElementById('E').value);
+    var A;
+    switch (bb) {
+      case '=':{
+        L1=LY/2;
+        X=Math.sqrt((Math.pow(E,2))+(Math.pow(L1,2)));
+        CA=L1/X;
+        R=1.25*QY*L1;
+        if (M==3) {
+          T1=R/2;
+          T2=T1/(2*CA);
+          A=(T1/23.50);
+        }
+        if (M==4) {
+          T1=R/2;
+          T2=R+T1;
+          T3=T2/(2*CA);
+          A=(T2/23.50);
+        }
+        if (M==5) {
+          T1=R/2;
+          T2=R+T1;
+          T3=R+T2;
+          T4=T3/(2*CA);
+          A=(T3/23.50);
+        }
+        if (M==6) {
+          T1=R/2;
+          T2=R+T1;
+          T3=R+T2;
+          T4=R+T3;
+          T5=T4/(2*CA);
+          A=(T4/23.50);
+        }
+        if (M==7) {
+          T1=R/2;
+          T2=R+T1;
+          T3=R+T2;
+          T4=R+T3;
+          T5=R+T4;
+          T6=T5/(2*CA);
+          A=(T5/23.50);
+        }
+
+      }
+        break;
+      default:
+    }
+    document.getElementById('IZ').value=A;
+  }
+function cc(bb){
+  var A=Number(document.getElementById('IZ').value);
+  var IX;
+  switch (bb) {
+    case '=':{
+      S1=Math.sqrt((A*4)/3.141592);
+      MY=(Math.round(S1));
+      if (MY > S1){
+           M=(MY-1);
+           N=((S1-M)*1000);
+           R=((Math.round(N))/1000);
+           IX=(M+R);
+        } else {
+           M=(MY);
+           N=((S1-M)*1000);
+           R=((Math.round(N))/1000);
+           IX=(M+R);
+         }
+    }
+      break;
+    default:
+  }
+  document.getElementById('IY').value=IX;
+}
+document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+  </script>
+	</body>
+</center>
+</html>
+<!-- MY=(Math.round(S1));
+     if (MY > S1){
+          M=(MY-1);
+          N=((S1-M)*1000);
+          R=((Math.round(N))/1000);
+          S1=(M+R);
+       } else {
+          M=(MY);
+          N=((S1-M)*1000);
+          R=((Math.round(N))/1000);
+          S1=(M+R);
+        }
+        if (SA>=0 && SA<=0.5){
+          A1=(A*30)/0.5;
+        } if (SA>0.5 && SA<=1){
+          A1=30+(((SA-0.5)*90)/1);
+        }
+-->

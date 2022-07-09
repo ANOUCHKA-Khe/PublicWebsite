@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="Routes">
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 102px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button6 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.button6:hover {
+  background-color: #4CAF50;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2.4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(39px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+	<center>
+	<body>
+	<h2>Routes</h2>
+  <h2> حساب كثافة المرور بعد سنين </h2>
+  <br>T(v/j) = <input type="text" id="X1"><br>
+  <br>n(ans) = <input type="text" id="X2"><br>
+  <br>τ = <input type="text" id="X3"><br>
+  <br><button id="myBtn" class="button button6" onclick="aa('=')">النتيجة</button></br>
+  <element dir="rtl"><br> كثافة المرور بعد (n) سنة <br>
+  <br><element dir="ltr">TJMAn(v/j) = <input type="text" id="geS">
+  <script>
+  function aa(bb){
+    var T0=Number(document.getElementById('X1').value);
+    var N=Number(document.getElementById('X2').value);
+    var TO=Number(document.getElementById('X3').value);
+    var TM;
+    switch (bb) {
+      case '=':{
+        TM=(T0*(Math.pow((1+TO),N)));
+        MY=(Math.round(TM));
+					   if (MY > TM){
+    					    M=(MY-1);
+					        N=((TM-M)*1000);
+    					    R=((Math.round(N))/1000);
+ 					       TM=(M+R);
+							 } else {
+  					      M=(MY);
+					      N=((TM-M)*1000);
+ 					       R=((Math.round(N))/1000);
+					        TM=(M+R);
+    					  }
+      }
+        break;
+      default:
+    }
+    document.getElementById('geS').value=TM;
+  }
+  document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+  </script>
+	</body>
+</center>
+</html>

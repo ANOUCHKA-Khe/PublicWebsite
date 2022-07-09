@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title="Routes">
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 102px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button6 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.button6:hover {
+  background-color: #4CAF50;/*green = 4CAF50 ; blue = 008CBA*/
+  color: white;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2.4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(39px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+	<center>
+	<body>
+	<h2>Routes</h2>
+  <h2>حساب مسافة توقف المركبة</h2>
+  aligment droit
+  <label class="switch">
+  <input type="checkbox" id="myig" value="false" onclick="onler('+')">
+  <span class="slider round"></span>
+</label>
+        en courbe
+<br>
+  <p id="t1" style="display">aligment droit </p>
+  <p id="t2" style="display:none">en courbe </p>
+  <br>V(Km/h) = <input type="text" id="X1"></br>
+  <br><button id="myBtn" class="button button6" onclick="aa('=')">النتيجة</button></br>
+   مسافة التوقف <br>
+  da(m) = <input type="text" id="geS">
+  <script>
+  function onler(bb){
+    var checkBox = document.getElementById('myig');
+    var text = document.getElementById('t1')
+    var text1 = document.getElementById('t2')
+    switch (bb) {
+      case '+':{
+        if (checkBox.checked == true){
+         text1.style.display = "block";
+         text.style.display = "none";
+         } else {
+            text1.style.display = "none";
+            text.style.display = "block";
+  }
+      }
+        break;
+      default:
+    }
+  }
+  function aa(bb){
+    var checkBox = document.getElementById('myig');
+    var V1=Number(document.getElementById('X1').value);
+    var DA;
+    switch (bb) {
+      case '=':{
+        if ( checkBox.checked == false && V1>0 ){
+          if (V1<100){
+            DA=(((Math.pow(V1,2))/100)+(0.55*V1));
+          } if (V1>=100) {
+            DA=(((Math.pow(V1,2))/100)+(0.5*V1));
+          }else {
+            //do nothing
+          }
+        }if ( checkBox.checked == true && V1>0) {
+          if (V1<100){
+            DA=((1.25*((Math.pow(V1,2))/100))+(0.55*V1));
+          } if (V1>=100) {
+            DA=((1.25*((Math.pow(V1,2))/100))+(0.5*V1));
+          }else {
+            //do nothing
+          }
+        } else {
+          //do nothing
+        }
+        MY=(Math.round(DA));
+					   if (MY > DA){
+    					    M=(MY-1);
+					        N=((DA-M)*1000);
+    					    R=((Math.round(N))/1000);
+ 					       DA=(M+R);
+							 } else {
+  					      M=(MY);
+					        N=((DA-M)*1000);
+ 					        R=((Math.round(N))/1000);
+					        DA=(M+R);
+    					  }
+      }
+        break;
+      default:
+    }
+    document.getElementById('geS').value=DA;
+  }
+  document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+  </script>
+	</body>
+</center>
+</html>
