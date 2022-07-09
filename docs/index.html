@@ -1,0 +1,163 @@
+<html>
+<title="Home"></title>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 14px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; /*green*/
+}
+.button2:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+.button3 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;/*blue*/
+}
+.button3:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.button4 {
+  border: none;
+  color: white;
+  padding: 14px 97.4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #9B59B6;
+}
+.button4:hover {
+  background-color: #9B59B6;
+  color: white;
+}
+.close {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  padding: 5px 5px;
+  left: 8px;
+  top: 8px;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+img:hover {
+  height: 75px;
+  width: 120px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;;
+}
+</style>
+<center>
+<body>
+  <div style="display: flex; justify-content: space-around">
+  <div><button id="b" class="button button2" onclick="window.history.back()" title="Backward (B)">Back</button>
+  <button id="f" class="button button3" onclick="window.history.forward()" title="Forward (F)">Forward</button>
+  <br><button id="Home" class="button button4" onclick="location.href='home.html'" title="Home (H)">Home</button></div>
+  <div><br><a href="ba/ba.html" target="iframe_a">
+         <img alt="Qries" src="img/ba.jpg"
+         width="115" height="70">
+      </a></div>
+  <div><br><a href="cm/cm.html" target="iframe_a">
+    <img alt="CM" src="img/cm.jpg"
+    width="115" height="70">
+  </a></div>
+  <div><br><a href="oda/oda.html" target="iframe_a">
+    <img alt="ODA" src="img/oda.jpg"
+     width="115" height="70">
+   </a></div>
+   <div><br><a href="rt/rt.html" target="iframe_a">
+     <img alt="RT" src="img/rt.jpg"
+     width="115" height="70">
+   </a></div>
+  </div>
+  <br><iframe src="unite/uniteconfert.html" name="iframe_b" style="border:2px solid green;" height="78%" width="20%" title="Iframek">
+  </iframe>
+  <iframe src="tip/tips.html" name="iframe_a" style="border:2px solid red;" height="78%" width="76.8%" title="Example">
+    </iframe>
+  <!-- don't stop -->
+  <script>
+  function ab(bb){
+    switch (bb) {
+      case '=':{
+        var Backlen=history.length;
+        history.go(-Backlen);
+        window.location.href='Welcometest.html';
+        browser.history.deleteAll()
+      }
+
+        break;
+      default:
+
+    }
+  }
+  document.addEventListener("keypress", function(event) {
+    if (event.key === "e") {
+      event.preventDefault();
+      document.getElementById("out").click();
+    }
+  });
+  document.addEventListener("keypress", function(event) {
+    if (event.key === "h") {
+      event.preventDefault();
+      document.getElementById("Home").click();
+    }
+  });
+  document.addEventListener("keypress", function(event) {
+    if (event.key === "b") {
+      event.preventDefault();
+      document.getElementById("b").click();
+    }
+  });
+  document.addEventListener("keypress", function(event) {
+    if (event.key === "f") {
+      event.preventDefault();
+      document.getElementById("f").click();
+    }
+  });
+  </script>
+</body>
+</center>
+</html>
